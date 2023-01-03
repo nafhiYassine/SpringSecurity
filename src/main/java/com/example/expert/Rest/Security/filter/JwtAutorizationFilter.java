@@ -48,9 +48,7 @@ public class JwtAutorizationFilter extends OncePerRequestFilter {
                         response.setHeader("error-message", e.getMessage());
                         response.sendError(HttpServletResponse.SC_FORBIDDEN);
                    }   
-                   
                 }else{filterChain.doFilter(request,response);}
-                
-    }
+            }
     
 }

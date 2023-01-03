@@ -36,8 +36,6 @@ public class RestApi{
     public List <Personne> getTest(){
 
         return service.getAll();
-
-        
     }
 
     @PostMapping("/register")
@@ -61,6 +59,7 @@ public class RestApi{
     public void addRoleToUser(@RequestBody FormRolesUser formRolesUser ){
         service.AddRolesToUser(formRolesUser.getNom(), formRolesUser.getRolesName());
     }
+
 
 }
 
