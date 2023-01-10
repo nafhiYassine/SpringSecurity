@@ -49,6 +49,7 @@ public class PersonneImp implements Ipersonne {
     public List<Personne> getAll() {
     
         return repJpa.findAll();
+        // userRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
     }
 
     @Override

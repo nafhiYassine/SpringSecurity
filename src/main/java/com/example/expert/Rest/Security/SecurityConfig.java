@@ -53,17 +53,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
   }
 
   protected void configure(HttpSecurity http)throws Exception{
-      http.csrf().disable();
-      http.cors().configurationSource(corsConfigurationSource());
-      http.formLogin().defaultSuccessUrl("/test/get", true);
-      http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-      http.headers().frameOptions().disable();
-      http.authorizeRequests().antMatchers("/login/**").permitAll();
-      http.authorizeRequests().antMatchers(HttpMethod.POST,"/test/**").hasAuthority("admin");
-      http.authorizeRequests().antMatchers(HttpMethod.GET,"/test/**").hasAuthority("user");
-      http.authorizeRequests().anyRequest().authenticated();
-      http.addFilter(new JwtAuthenticationFilter(authenticationManagerBean()));
-      http.addFilterBefore(new JwtAutorizationFilter(),UsernamePasswordAuthenticationFilter.class);
+      // http.csrf().disable();
+      // http.cors().configurationSource(corsConfigurationSource());
+      // http.formLogin().defaultSuccessUrl("/test/get", true);
+      // http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+      // http.headers().frameOptions().disable();
+      // http.authorizeRequests().antMatchers("/login/**").permitAll();
+      // http.authorizeRequests().antMatchers(HttpMethod.POST,"/test/**").hasAuthority("admin");
+      // http.authorizeRequests().antMatchers(HttpMethod.GET,"/test/**").hasAuthority("user");
+      // http.authorizeRequests().anyRequest().authenticated();
+      // http.addFilter(new JwtAuthenticationFilter(authenticationManagerBean()));
+      // http.addFilterBefore(new JwtAutorizationFilter(),UsernamePasswordAuthenticationFilter.class);
     }
   @Bean
   @Override

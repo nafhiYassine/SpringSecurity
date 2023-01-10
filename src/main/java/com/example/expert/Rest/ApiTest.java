@@ -11,11 +11,18 @@ import com.example.expert.Rest.services.PersonneImp;
 import com.example.expert.Rest.models.Personne;
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("/apiV2")
 public class ApiTest {
     @Autowired
     private PersonneImp service;
-    
+
+
+    @GetMapping("/string")
+    public String getHelloJava(){
+        return "heyJava";
+
+        
+    }
     @GetMapping("/get")
     /*@PostAutorize("hasAutority('user')" */
     public List <Personne> getTest(){
