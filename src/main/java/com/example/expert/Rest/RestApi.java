@@ -3,6 +3,9 @@ package com.example.expert.Rest;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -59,6 +62,18 @@ public class RestApi{
     public void addRoleToUser(@RequestBody FormRolesUser formRolesUser ){
         service.AddRolesToUser(formRolesUser.getNom(), formRolesUser.getRolesName());
     }
+    // @PostMapping("/resetPassword/{email}")
+    // public void resetPassword(@PathParam("email") String email, HttpServletRequest request) {
+    //     // Personne user = repTest.findUserByEmail(email);
+    //     // String url = "";
+    //     // if(user!=null){
+    //     //     String token = UUID.randomUUID().toString();
+            
+    //     // }
+    //     // return url;
+    //     System.out.println(email);
+    //     System.out.println(request);
+    // }
 
 
 }

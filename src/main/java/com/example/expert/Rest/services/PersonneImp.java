@@ -71,8 +71,6 @@ public class PersonneImp implements Ipersonne {
         personne.getAppRoles().add(appRole);
     }
 
-
-
 @Override
 public Personne findPersonneByNom(String nom) {
     return repJpa.findPersonneByNom(nom);

@@ -34,28 +34,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
   @Autowired
   private PersonneImp personneService;
 
-  @Override
-  protected void configure(AuthenticationManagerBuilder auth ) throws Exception{
-    auth.userDetailsService(new UserDetailsService() {
+  // @Override
+  // protected void configure(AuthenticationManagerBuilder auth ) throws Exception{
+  //   auth.userDetailsService(new UserDetailsService() {
 
-      @Override
-      public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+  //     @Override
+  //     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        Personne personne = personneService.findPersonneByNom(username);
-        Collection<GrantedAuthority> authorities = new ArrayList<>();
-        personne.getAppRoles().forEach(r ->{
-            authorities.add(new SimpleGrantedAuthority(r.getRolesName()));
-        });
-        return new User(personne.getNom(), personne.getPassword(), authorities);
-      }
-    });
+  //       Personne personne = personneService.findPersonneByNom(username);
+  //       Collection<GrantedAuthority> authorities = new ArrayList<>();
+  //       personne.getAppRoles().forEach(r ->{
+  //           authorities.add(new SimpleGrantedAuthority(r.getRolesName()));
+  //       });
+  //       return new User(personne.getNom(), personne.getPassword(), authorities);
+  //     }
+  //   });
 
-  }
+  // }
 
   protected void configure(HttpSecurity http)throws Exception{
+    
       // http.csrf().disable();
       // http.cors().configurationSource(corsConfigurationSource());
-      // http.formLogin().defaultSuccessUrl("/test/get", true);
+      // // http.formLogin().defaultSuccessUrl("/test/get", true);
       // http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
       // http.headers().frameOptions().disable();
       // http.authorizeRequests().antMatchers("/login/**").permitAll();
