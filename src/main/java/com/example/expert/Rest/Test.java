@@ -1,9 +1,77 @@
 package com.example.expert.Rest;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+ import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.TesseractException;
+
+import java.awt.Desktop;
+import java.net.URI;
+import java.net.URISyntaxException;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
 public class Test {
+    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/src/main/resources/uploads";
+
    
-   
-    public static void main (String args[]){
+    public static void main (String args[]) throws IOException{
+
+        File pdfFile = new File(UPLOAD_DIRECTORY +"/test.png");
+        PDDocument document = PDDocument.load(pdfFile);
+        PDFTextStripper pdfStripper = new PDFTextStripper();
+        String text = pdfStripper.getText(document);
+        System.out.println(text);
+        document.close();
+
+        // LocalDateTime now = LocalDateTime.now();
+        // System.out.println(now);
+        // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        // String formattedDateTime = now.format(formatter);
+        // // String url = "https://www.google.com";
+        // // try {
+        // //     Desktop.getDesktop().browse(new URI(url));
+        // // } catch (IOException | URISyntaxException e) {
+        // //     e.printStackTrace();
+        // // }
+        // if(formattedDateTime.equals("15:25")){
+        //     String bureau = System.getProperty("user.home") + "/Desktop";
+        //     File dossier = new File(bureau +"/archivage" );
+        //     Path sourcePath = Paths.get(UPLOAD_DIRECTORY);
+        //     Path destinationPath = Paths.get(bureau +"/archivage");
+        //     if(dossier.exists() && dossier.isDirectory()){ 
+        //         Files.walk(sourcePath).forEach(file -> {
+        //             Path destinationFile = destinationPath.resolve(sourcePath.relativize(file));
+        //         File  fichier = new File(dossier +"/"+file);
+        //         System.out.println(fichier);
+        //         if(!fichier.exists()){   
+        //             try {
+        //                 Files.copy(file, destinationFile);
+        //             } catch (FileAlreadyExistsException e ) {
+        //                 System.out.println("Directory already exists.");
+        //             } catch (IOException e) {
+        //                 e.printStackTrace();
+        //             }
+        //         }else{System.out.println("dejjjjaaaaaaa existe");}
+        //         });
+        
+        //         System.out.println("La copie est terminée !");
+        //     }else{ boolean resultat = dossier.mkdir();}
+        // }else{System.out.println("erreur");}
+
+
+
+
+       
+
+
+        
        /* int tab[][] = {{1,2,3}, {4,5,6}, {7,8,9}, {10,11,12}};
         int som = 0;
         for (int i = 0; i <tab.length; ++i)
