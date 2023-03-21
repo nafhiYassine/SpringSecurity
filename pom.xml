@@ -43,6 +43,16 @@
 			<artifactId>postgresql</artifactId>
 	</dependency>
 	<dependency>
+		<groupId>net.sourceforge.tess4j</groupId>
+		<artifactId>tess4j</artifactId>
+		<version>4.5.1</version>
+	</dependency>
+	<dependency>
+    <groupId>com.asprise.ocr</groupId>
+    <artifactId>java-ocr-api</artifactId>
+    <version>15.3.0.3</version>
+</dependency>
+	<dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-log4j2</artifactId>
   </dependency> 

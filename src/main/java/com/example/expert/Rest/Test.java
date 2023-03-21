@@ -6,29 +6,50 @@ import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
- import java.time.LocalDateTime;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
-import net.sourceforge.tess4j.Tesseract;
-import net.sourceforge.tess4j.TesseractException;
 
 import java.awt.Desktop;
 import java.net.URI;
 import java.net.URISyntaxException;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
+import com.asprise.ocr.Ocr;
+
+import net.sourceforge.tess4j.ITesseract;
+import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.TesseractException;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 public class Test {
     public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/src/main/resources/uploads";
+    public static String UPLOAD_DIRECTORY_TEMP = System.getProperty("user.home") +"/Desktop/tessdata-main" ;
 
-   
-    public static void main (String args[]) throws IOException{
+    public static void main(String[] args) {
+        
+        System.out.println(UPLOAD_DIRECTORY_TEMP);
+        File imageFile = new File(UPLOAD_DIRECTORY +"/captureTest.png");
+        ITesseract tess = new Tesseract();
+        tess.setDatapath(UPLOAD_DIRECTORY_TEMP); // chemin vers le dossier tessdata qui contient les fichiers de données de Tesseract
+        try {
+            String result = tess.doOCR(imageFile);
+            System.out.println(result);
+        } catch (TesseractException e) {
+            System.err.println(e.getMessage());
+        }
+}
 
-        File pdfFile = new File(UPLOAD_DIRECTORY +"/test.png");
-        PDDocument document = PDDocument.load(pdfFile);
-        PDFTextStripper pdfStripper = new PDFTextStripper();
-        String text = pdfStripper.getText(document);
-        System.out.println(text);
-        document.close();
+        // scan file pdf
+        // File pdfFile = new File(UPLOAD_DIRECTORY +"/samplea.png");
+        // PDDocument document = PDDocument.load(pdfFile);
+        // PDFTextStripper pdfStripper = new PDFTextStripper();
+        // String text = pdfStripper.getText(document);
+        // System.out.println(text);
+        // document.close();
 
         // LocalDateTime now = LocalDateTime.now();
         // System.out.println(now);
@@ -67,11 +88,6 @@ public class Test {
 
 
 
-
-       
-
-
-        
        /* int tab[][] = {{1,2,3}, {4,5,6}, {7,8,9}, {10,11,12}};
         int som = 0;
         for (int i = 0; i <tab.length; ++i)
@@ -171,4 +187,4 @@ public class Test {
           
         }
           
-}
+
