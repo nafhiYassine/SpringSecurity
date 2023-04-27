@@ -1,46 +1,76 @@
 package com.example.expert.Rest;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.FileAlreadyExistsException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
 
-import java.awt.Desktop;
-import java.net.URI;
-import java.net.URISyntaxException;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.text.PDFTextStripper;
-import com.asprise.ocr.Ocr;
 
-import net.sourceforge.tess4j.ITesseract;
-import net.sourceforge.tess4j.Tesseract;
-import net.sourceforge.tess4j.TesseractException;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
 public class Test {
     public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/src/main/resources/uploads";
     public static String UPLOAD_DIRECTORY_TEMP = System.getProperty("user.home") +"/Desktop/tessdata-main" ;
 
     public static void main(String[] args) {
         
-        System.out.println(UPLOAD_DIRECTORY_TEMP);
-        File imageFile = new File(UPLOAD_DIRECTORY +"/captureTest.png");
-        ITesseract tess = new Tesseract();
-        tess.setDatapath(UPLOAD_DIRECTORY_TEMP); // chemin vers le dossier tessdata qui contient les fichiers de données de Tesseract
-        try {
-            String result = tess.doOCR(imageFile);
-            System.out.println(result);
-        } catch (TesseractException e) {
-            System.err.println(e.getMessage());
-        }
+        List<String> maliste = new  ArrayList<String>();
+        maliste.add("avd");
+        maliste.add("bsc");
+        maliste.add("BHHcs");
+        maliste.add("UPLOAD_DIRECTORY");
+        maliste.stream().filter(s ->s.startsWith( "b" )).map(String::toUpperCase).sorted().forEach(System.out::println);
+        String yassine ="baXalalalananalla";
+        
+        System.out.println(yassine.substring(3));
+        // System.out.println(UPLOAD_DIRECTORY_TEMP);
+        // File imageFile = new File(UPLOAD_DIRECTORY +"/captureTest.png");
+        // ITesseract tess = new Tesseract();
+        // tess.setDatapath(UPLOAD_DIRECTORY_TEMP); // chemin vers le dossier tessdata qui contient les fichiers de données de Tesseract
+        // try {
+        //     String result = tess.doOCR(imageFile);
+        //     System.out.println(result);
+        // } catch (TesseractException e) {
+        //     System.err.println(e.getMessage());
+        // }
+
+        // int array[] ={1,2,3,5,6,8,9}; 
+        // int n=0;   
+
+        // for(int i=0 ; i<array.length; i++){
+        //   if(array[i]>n){
+        //     n=array[i];
+        //   }
+          
+        // }
+        // System.out.println(n);
+        // SimpleDateFormat s = new SimpleDateFormat();
+        // System.out.println(s.format(System.currentTimeMillis()));
+        // File file = new File(UPLOAD_DIRECTORY+"/arabT");
+        // System.out.println(file.length());
+        // int chr ='à';
+        // System.out.println(chr);
+
+        // StringBuilder bs= new StringBuilder("WayToLearnX");
+        // System.out.println(bs.reverse());
+
+        // int[] array = {5,1,22,25,6,-1,8,10};
+        // int[] sequence = {1,6,8,10,50};
+        // boolean x=true ;
+        // int compteur=0;
+        // int j=0;
+        // int size = sequence.length;
+        // for (int i = 0; i < array.length; i++) {
+        //     if(j<size){
+        //         int array2=sequence[j];
+        //         if(array2==array[i]){
+        //             System.out.println(array2);
+        //             compteur=compteur+1;
+        //             j++;
+        //             x=true;
+        //         }
+        //     }else{x=false;}
+        // }System.out.println(x);
 }
 
         // scan file pdf

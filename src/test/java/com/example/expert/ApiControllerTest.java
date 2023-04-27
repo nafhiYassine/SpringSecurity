@@ -19,9 +19,7 @@ public class ApiControllerTest {
 
     @Test
     public void testGetPersonne() throws Exception{
-
         mockMvc.perform(get("/api/get")).andExpect(status().isOk());
-   
     }
 
     

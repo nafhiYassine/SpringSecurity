@@ -20,8 +20,8 @@ public class PersonneTest {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
-    private String nom ;
-    private String prenom ;
+    private String nom;
+    private String prenom;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     @Column(name = "picByte", length = 1000)
